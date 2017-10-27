@@ -115,7 +115,7 @@ func (c *Controller) UpdateUserSchedules(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	_, err := models.NewTask().FindTaskByTaskId(c.AppContext.DB, taskId)
+	_, err = models.NewTask().FindTaskByTaskId(c.AppContext.DB, taskId)
 	if err != nil && err == sql.ErrNoRows {
 		c.Error(err.Error())
 		c.PutResp(RemarkTag, "任务不存在")

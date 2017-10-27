@@ -8,12 +8,12 @@
 
 > 参数:
 
-| 参数名      | 类型     | 说明    |
-| -------- | ------ | ----- |
-| username | string | 登录用户名 |
-| password | string | 登录密码  |
-| nickname | string | 昵称    |
-| school | string | 学校    |
+| 参数名       | 类型      | 说明    |
+| --------- | ------- | ----- |
+| username  | string  | 登录用户名 |
+| password  | string  | 登录密码  |
+| nickname  | string  | 昵称    |
+| school-id | integer | 学校id  |
 
 
 > 响应:
@@ -51,6 +51,7 @@
 | resp_code    | int    | 响应码 1000 成功,非1000失败 |
 | remark       | string | 响应描述                |
 | username     | string | 用户名                 |
+| nickname     | string | 昵称                  |
 | access_token | string | 用户访问凭证              |
 | userid       | string | 用户id                |
 
@@ -74,7 +75,7 @@
 | 参数名          | 类型     | 说明     |
 | ------------ | ------ | ------ |
 | userid       | string | 用户id   |
-| access_token | string | 用户访问凭证 |
+| access-token | string | 用户访问凭证 |
 |              |        |        |
 
 > 响应:
@@ -103,7 +104,7 @@
 | 参数名          | 类型     | 说明     |
 | ------------ | ------ | ------ |
 | userid       | string | 用户id   |
-| access_token | string | 用户访问凭证 |
+| access-token | string | 用户访问凭证 |
 |              |        |        |
 
 > 响应:
@@ -163,9 +164,9 @@
 | 参数名          | 类型     | 说明                         |
 | ------------ | ------ | -------------------------- |
 | userid       | string | 用户id                       |
-| access_token | string | 用户访问凭证                     |
-| task_id      | string | 任务id                       |
-| task_status  | string | 更新任务状态 [任务状态可选值](#任务状态可选值) |
+| access-token | string | 用户访问凭证                     |
+| task-id      | string | 任务id                       |
+| task-status  | string | 更新任务状态 [任务状态可选值](#任务状态可选值) |
 
 
 > 响应:
@@ -214,19 +215,19 @@
 > 响应:
 
 
-| 属性名       | 类型     | 说明                  |
-| --------- | ------ | ------------------- |
-| resp_code | int    | 响应码 1000 成功,非1000失败 |
-| remark    | string | 响应描述                |
-|  schools | []Object | 学校列表|
+| 属性名       | 类型       | 说明                  |
+| --------- | -------- | ------------------- |
+| resp_code | int      | 响应码 1000 成功,非1000失败 |
+| remark    | string   | 响应描述                |
+| schools   | []Object | 学校列表                |
 
 
 >> school Object:
 
-| 属性名      | 类型     | 说明                  |
-| -------- | ------ | ------------------- |
-| id       | string | 学校id                |
-| name     | string | 学校名称                |
+| 属性名  | 类型     | 说明   |
+| ---- | ------ | ---- |
+| id   | string | 学校id |
+| name | string | 学校名称 |
 
 
 

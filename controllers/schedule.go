@@ -24,6 +24,14 @@ func (c *Controller) GetUserSchedules(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// 检查用户是否登录
+	_, err := models.NewAccessToken().FindByUserIdAndAccessToken(c.AppContext.DB, userId, accessToken)
+	if err != nil {
+		c.PutResp(RespCodeTag, ResponseError)
+		c.PutResp(RemarkTag, "请先登录")
+		return
+	}
+
 	// 读取任务定义列表 schedule,然后再读用户任务列表,然后遍历定义表数据,再从用户已经变更状态的记录中合并数据
 	taskDefs, err := models.NewTask().FindAll(c.AppContext.DB)
 	if err != nil {
@@ -96,6 +104,14 @@ func (c *Controller) UpdateUserSchedules(w http.ResponseWriter, r *http.Request)
 
 	if len(userId) == 0 || len(accessToken) == 0 || len(taskId) == 0 || len(taskStatus) == 0 {
 		c.Error("必选参数不得为空")
+		return
+	}
+
+	// 检查用户是否登录
+	_, err := models.NewAccessToken().FindByUserIdAndAccessToken(c.AppContext.DB, userId, accessToken)
+	if err != nil {
+		c.PutResp(RespCodeTag, ResponseError)
+		c.PutResp(RemarkTag, "请先登录")
 		return
 	}
 

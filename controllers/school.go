@@ -6,7 +6,6 @@ import (
 	"e2u.io/ar-app-srv/models"
 )
 
-
 // GetAllSchools  取所有学校列表
 // curl http://127.0.0.1:9000/v1/schools
 func (c *Controller) GetAllSchools(w http.ResponseWriter, r *http.Request) {

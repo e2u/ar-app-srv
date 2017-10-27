@@ -40,3 +40,12 @@ func (a *AccessToken) DeleteByUserIdAndAccessToken(db *gorm.DB, userId, accessTo
 	}
 	return db.Delete(AccessToken{}, "user_id = ? and access_token = ? ", userId, accessToken).Error
 }
+
+// FindByUserIdAndAccessToken
+func (a *AccessToken) FindByUserIdAndAccessToken(db *gorm.DB, userId, accessToken string) (*AccessToken, error) {
+	var at AccessToken
+	if db.Limit(1).Model(&AccessToken{}).Where("user_id = ? and access_token = ? ", userId, accessToken).Find(&at).RecordNotFound() {
+		return nil, sql.ErrNoRows
+	}
+	return &at, nil
+}

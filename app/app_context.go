@@ -7,7 +7,6 @@ import (
 	"e2u.io/ar-app-srv/models"
 	"e2u.io/ar-app-srv/util"
 	"github.com/e2u/goboot"
-	"github.com/e2u/goboot/cache"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -16,7 +15,6 @@ import (
 type AppContext struct {
 	AppName string
 	RunMode string
-	Cache   *cache.Redis
 	DevMode bool
 	DB      *gorm.DB
 }
